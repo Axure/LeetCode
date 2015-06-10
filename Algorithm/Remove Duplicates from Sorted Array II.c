@@ -1,43 +1,54 @@
 #include <stdio.h>
 
 int removeDuplicates(int* nums, int numsSize) {
-    
-}
-
-int main(int argc, char const *argv[])
-{
 	int length = 0;
 	int if_two = 0;
 	int last;
-	int i;
-	while(scanf("%d", &i) == 1){
-		// printf("%d", i);
+	int i, j;
+	for (j = 0; j < numsSize; ++j) {
+		i = nums[j];
+		// printf("Fucking %d\n", i);
 		switch(if_two) {
 		case 0:
 			last = i;
 			++length;
 			++if_two;
+			printf("%d ", i);
 			break;
 		case 1:
 			if (last == i) {
 				++length;
 				++if_two;
+				printf("%d ", i);
 			} else {
+				last = i;
 				++length;
-				if_two = 0;
+				if_two = 1;
+				printf("%d ", i);
 			}
 			break;
 		default:
 			if (last == i) {
 				++if_two;
 			} else {
+				last = i;
 				++length;
-				if_two = 0;
+				if_two = 1;
+				printf("%d ", i);
 			}
 
 			break;		
 		}
 	}
-	printf("%d", length);
+	// if (length != 0) {
+	// 	printf("%d", length);	
+	// }
+	
+}
+
+int main(int argc, char const *argv[])
+{
+	int a[12] = {1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6, 6};
+	removeDuplicates(a, 12);
 	return 0;
 }
