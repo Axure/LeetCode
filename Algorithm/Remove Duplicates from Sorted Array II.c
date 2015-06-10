@@ -11,30 +11,34 @@ int removeDuplicates(int* nums, int numsSize) {
 		switch(if_two) {
 		case 0:
 			last = i;
+			nums[length] = i;
 			++length;
 			++if_two;
-			printf("%d ", i);
+			// printf("%d ", i);
 			break;
 		case 1:
 			if (last == i) {
+				nums[length] = i;
 				++length;
 				++if_two;
-				printf("%d ", i);
+				// printf("%d ", i);
 			} else {
+				nums[length] = i;
 				last = i;
 				++length;
 				if_two = 1;
-				printf("%d ", i);
+				// printf("%d ", i);
 			}
 			break;
 		default:
 			if (last == i) {
 				++if_two;
 			} else {
+				nums[length] = i;
 				last = i;
 				++length;
 				if_two = 1;
-				printf("%d ", i);
+				// printf("%d ", i);
 			}
 
 			break;		
@@ -43,6 +47,7 @@ int removeDuplicates(int* nums, int numsSize) {
 	// if (length != 0) {
 	// 	printf("%d", length);	
 	// }
+	return length;
 	
 }
 
